@@ -13,12 +13,13 @@ public class Util {
 
     public static Connection getConnection() {
         Driver driver;
+        Connection connection;
 
         try {
             driver = new com.mysql.cj.jdbc.Driver();
             DriverManager.registerDriver(driver);
 
-            Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             return connection;
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -4,10 +4,11 @@ import jm.task.core.jdbc.dao.UserDao;
 import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.model.User;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-    UserDao userDaoJDBC = new UserDaoJDBCImpl();
+    private UserDao userDaoJDBC = new UserDaoJDBCImpl();
 
     public void createUsersTable() {
         userDaoJDBC.createUsersTable();
@@ -32,4 +33,6 @@ public class UserServiceImpl implements UserService {
     public void cleanUsersTable() {
         userDaoJDBC.cleanUsersTable();
     }
+
+    public void closeConnection() throws SQLException { userDaoJDBC.closeConnection(); }
 }
